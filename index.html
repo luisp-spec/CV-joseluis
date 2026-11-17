@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- CAMBIAR: nombre y carrera en el título y la descripción (SEO) -->
+<title>Jose Luis Paucar Ticona | Arquitectura de Plataformas y Servicios de TI</title>
+<meta name="description" content="Currículum vitae de Luis Pau Corticona, estudiante de Arquitectura de Plataformas y Servicios de Tecnologías de la Información en el IESTP Santa Lucía.">
+<style>
+/* ===== 1. COLORES Y TIPOGRAFÍA (edita aquí para cambiar toda la paleta) ===== */
+:root{
+  --tinta:#17202a;      /* texto principal */
+  --gris:#566170;       /* texto secundario */
+  --fondo:#f5f6f8;      /* fondo de la página */
+  --blanco:#ffffff;     /* fondo de tarjetas */
+  --acento:#2457c5;     /* color de acento (botones, barras, enlaces) */
+  --linea:#dde1e7;      /* bordes suaves */
+  --radio:8px;
+  --sombra:0 1px 2px rgba(23,32,42,.06),0 4px 14px rgba(23,32,42,.05);
+  --titulos:Georgia,"Times New Roman",serif;
+  --texto:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--texto);color:var(--tinta);background:var(--fondo);line-height:1.65;font-size:16px}
+a{color:var(--acento)}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+.contenedor{width:min(1080px,92%);margin-inline:auto}
+section{padding:84px 0}
+section.alt{background:var(--blanco);border-block:1px solid var(--linea)}
+h2{font-family:var(--titulos);font-size:2rem;font-weight:700;margin-bottom:36px;padding-left:16px;border-left:4px solid var(--acento);line-height:1.2}
+h3{font-size:1.1rem;line-height:1.35}
+p{max-width:68ch}
+
+/* ===== 2. BOTONES ===== */
+.btn{display:inline-block;padding:12px 24px;border-radius:var(--radio);font-weight:600;text-decoration:none;border:2px solid var(--acento);cursor:pointer;font:inherit;font-weight:600;transition:background .2s,color .2s}
+.btn-primario{background:var(--acento);color:#fff}
+.btn-primario:hover{background:#1b449a;border-color:#1b449a}
+.btn-borde{background:transparent;color:var(--acento)}
+.btn-borde:hover{background:var(--acento);color:#fff}
+.btn-sm{padding:7px 14px;font-size:.88rem}
+
+/* ===== 3. MENÚ ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--linea)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--titulos);font-weight:700;font-size:1.15rem;color:var(--tinta);text-decoration:none}
+.menu{display:flex;gap:26px;list-style:none}
+.menu a{color:var(--gris);text-decoration:none;font-size:.95rem;padding:4px 0;border-bottom:2px solid transparent}
+.menu a:hover,.menu a.activo{color:var(--tinta);border-bottom-color:var(--acento)}
+.hamburguesa{display:none;background:none;border:1px solid var(--linea);border-radius:var(--radio);padding:8px 12px;font-size:1.1rem;cursor:pointer;color:var(--tinta)}
+
+/* ===== 4. INICIO ===== */
+#inicio{padding:72px 0 80px}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center}
+.hero h1{font-family:var(--titulos);font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;margin-bottom:10px}
+.hero .carrera{font-size:1.15rem;color:var(--acento);font-weight:600;margin-bottom:14px}
+.hero .frase{font-size:1.2rem;color:var(--gris);margin-bottom:14px}
+.hero .intro{margin-bottom:28px}
+.hero .botones{display:flex;gap:12px;flex-wrap:wrap}
+.foto{justify-self:center;width:min(320px,80%);aspect-ratio:1;border-radius:var(--radio);overflow:hidden;border:1px solid var(--linea);box-shadow:var(--sombra);background:var(--blanco)}
+.foto img{width:100%;height:100%;object-fit:cover}
+
+/* ===== 5. TARJETAS Y REJILLAS ===== */
+.rejilla{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.tarjeta{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);padding:24px;box-shadow:var(--sombra)}
+.tarjeta p{color:var(--gris);margin-top:8px;font-size:.96rem}
+.meta{font-size:.88rem;color:var(--acento);font-weight:600}
+.etiquetas{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.etiquetas span{font-size:.8rem;background:var(--fondo);border:1px solid var(--linea);border-radius:4px;padding:2px 9px;color:var(--gris)}
+.acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+
+/* Sobre mí */
+.sobre{display:grid;grid-template-columns:1.3fr 1fr;gap:32px}
+.sobre ul{margin:10px 0 0 20px;color:var(--gris)}
+.sobre li{margin-bottom:6px}
+
+/* Línea de tiempo (formación) */
+.linea-tiempo{border-left:2px solid var(--linea);margin-left:6px;display:grid;gap:22px}
+.linea-tiempo .tarjeta{margin-left:26px;position:relative}
+.linea-tiempo .tarjeta::before{content:"";position:absolute;left:-35px;top:28px;width:12px;height:12px;border-radius:50%;background:var(--acento);border:3px solid var(--fondo)}
+
+/* Habilidades */
+.habilidad{margin-bottom:18px}
+.habilidad .fila{display:flex;justify-content:space-between;font-size:.95rem;font-weight:600;margin-bottom:6px}
+.barra{height:8px;background:var(--linea);border-radius:99px;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--acento);border-radius:99px;transition:width 1s ease}
+
+/* Experiencia vacía */
+.aviso{border-style:dashed;box-shadow:none}
+
+/* ===== 6. CONTACTO ===== */
+.contacto{display:grid;grid-template-columns:1fr 1.2fr;gap:32px}
+.datos{list-style:none;display:grid;gap:14px;margin-top:8px}
+.datos b{display:block;font-size:.85rem;color:var(--gris);font-weight:600}
+form label{display:block;font-weight:600;font-size:.92rem;margin-bottom:5px}
+form input,form textarea{width:100%;padding:11px 13px;border:1px solid #c5cbd4;border-radius:var(--radio);font:inherit;background:#fff;color:var(--tinta);margin-bottom:4px}
+form textarea{min-height:130px;resize:vertical}
+form input:focus,form textarea:focus{border-color:var(--acento);outline:2px solid rgba(36,87,197,.25)}
+.campo{margin-bottom:14px}
+.error{color:#b3261e;font-size:.84rem;min-height:1.1em;display:block}
+.estado{margin-top:14px;font-weight:600;color:#1d6b3a}
+
+/* ===== 7. PIE ===== */
+footer{background:var(--tinta);color:#d5dae1;padding:34px 0;font-size:.92rem}
+footer .fila{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:#fff;margin-left:16px}
+footer b{color:#fff}
+
+/* Botón volver arriba */
+#arriba{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:none;background:var(--acento);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:var(--sombra);opacity:0;pointer-events:none;transition:opacity .25s}
+#arriba.visible{opacity:1;pointer-events:auto}
+
+/* Aparición suave de secciones */
+.oculto{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.oculto.ver{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.oculto{opacity:1;transform:none;transition:none}.barra i{transition:none}}
+
+/* ===== 8. RESPONSIVE ===== */
+@media (max-width:900px){      /* tablet */
+  .hero,.sobre,.contacto{grid-template-columns:1fr}
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .foto{order:-1;width:min(240px,70%);justify-self:start}
+}
+@media (max-width:640px){      /* celular */
+  section{padding:60px 0}
+  .g2,.g3{grid-template-columns:1fr}
+  .hamburguesa{display:block}
+  .menu{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--linea);flex-direction:column;gap:0;padding:8px 4%}
+  .menu.abierto{display:flex}
+  .menu a{display:block;padding:12px 0;border-bottom:1px solid var(--linea)}
+  footer .fila{flex-direction:column;align-items:flex-start}
+  footer a{margin:0 16px 0 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== MENÚ ===== -->
+<header>
+  <div class="contenedor nav">
+    <!-- CAMBIAR: tu nombre o iniciales -->
+    <a href="#inicio" class="logo">Luis Paucar</a>
+    <button class="hamburguesa" id="btnMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- ===== INICIO ===== -->
+<section id="inicio">
+  <div class="contenedor hero">
+    <div>
+      <!-- CAMBIAR: nombre completo -->
+      <h1>Jose Luis Paucar Ticona</h1>
+      <!-- CAMBIAR: carrera o profesión -->
+      <p class="carrera">Estudiante de Arquitectura de Plataformas y Servicios de TI · VI semestre</p>
+      <!-- CAMBIAR: frase profesional -->
+      <p class="frase">Joven persistente que se esfuerza para que cada trabajo salga bien.</p>
+      <!-- CAMBIAR: presentación breve -->
+      <p class="intro">Estudio en el IESTP Santa Lucía y estoy en mi último año. Trabajo con desarrollo web (HTML, CSS, JavaScript, Python, WordPress) y también tengo conocimientos de redes, fibra óptica, Excel e instalaciones eléctricas.</p>
+      <div class="botones">
+        <!-- CAMBIAR: enlace a tu CV en PDF (sube "cv.pdf" junto a index.html) -->
+        <a class="btn btn-primario" href="cv.pdf" target="_blank" rel="noopener">Ver CV</a>
+        <a class="btn btn-borde" href="#contacto">Contactarme</a>
+      </div>
+    </div>
+    <!-- CAMBIAR: foto. Guarda tu foto como "foto.jpg" y reemplaza todo el valor de src por: foto.jpg -->
+    <div class="foto">
+      <img alt="Foto de perfil de ejemplo" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23e6eaf0'/%3E%3Ccircle cx='100' cy='78' r='36' fill='%239aa6b8'/%3E%3Cpath d='M30 200c0-44 31-72 70-72s70 28 70 72z' fill='%239aa6b8'/%3E%3C/svg%3E">
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOBRE MÍ ===== -->
+<section id="sobre-mi" class="alt oculto">
+  <div class="contenedor">
+    <h2>Sobre mí</h2>
+    <div class="sobre">
+      <div>
+        <!-- CAMBIAR: descripción personal y profesional -->
+        <p>Soy estudiante del VI semestre de Arquitectura de Plataformas y Servicios de Tecnologías de la Información en el IESTP Santa Lucía. Me gusta convertir ideas en páginas y sistemas que funcionan, y he desarrollado proyectos académicos de desarrollo web, tiendas virtuales y sistemas de gestión.</p>
+        <p style="margin-top:12px">Soy persistente: le echo ganas a casi todo lo que hago y trato de que me salga bien. Aprendo mejor construyendo proyectos reales.</p>
+        <h3 style="margin-top:22px">Objetivos profesionales</h3>
+        <!-- CAMBIAR: tus objetivos -->
+        <ul>
+          <li>Terminar mi carrera en 2026 y conseguir mi primera oportunidad laboral o de prácticas en TI.</li>
+          <li>Seguir creciendo en desarrollo web y sistemas con Python y Django.</li>
+          <li>Reforzar mis conocimientos en redes y fibra óptica.</li>
+        </ul>
+      </div>
+      <div class="tarjeta">
+        <h3>Intereses</h3>
+        <!-- CAMBIAR: intereses -->
+        <div class="etiquetas">
+          <span>Desarrollo web</span><span>Sistemas de información</span><span>Bases de datos</span>
+          <span>Redes y fibra óptica</span><span>Soporte técnico</span><span>Excel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMACIÓN ACADÉMICA ===== -->
+<section id="formacion" class="oculto">
+  <div class="contenedor">
+    <h2>Formación académica</h2>
+    <div class="linea-tiempo">
+      <!-- CAMBIAR: copia y pega un bloque "tarjeta" por cada estudio -->
+      <div class="tarjeta">
+        <span class="meta">2024 – 2026 · VI semestre (último año)</span>
+        <h3>Arquitectura de Plataformas y Servicios de Tecnologías de la Información</h3>
+        <p><b>IESTP Santa Lucía</b><br>Formación en desarrollo web, bases de datos, redes, soporte técnico y gestión de plataformas de TI.</p>
+      </div>
+      <div class="tarjeta">
+        <span class="meta">Secundaria completa</span>
+        <h3>Educación secundaria</h3>
+        <p><b>I.E. José Carlos Mariátegui</b><br>Estudios básicos completos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HABILIDADES ===== -->
+<section id="habilidades" class="alt oculto">
+  <div class="contenedor">
+    <h2>Habilidades</h2>
+    <!-- CAMBIAR: el número en data-nivel es el porcentaje (0 a 100). Copia un bloque para añadir más. -->
+    <div class="rejilla g2" id="listaHabilidades">
+      <div class="habilidad"><div class="fila"><span>HTML</span><span>65%</span></div><div class="barra"><i data-nivel="85"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>CSS</span><span>60%</span></div><div class="barra"><i data-nivel="80"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>JavaScript</span><span>55%</span></div><div class="barra"><i data-nivel="65"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Python</span><span>55%</span></div><div class="barra"><i data-nivel="65"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Django</span><span>55%</span></div><div class="barra"><i data-nivel="60"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>WordPress</span><span>75%</span></div><div class="barra"><i data-nivel="75"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>WooCommerce</span><span>70%</span></div><div class="barra"><i data-nivel="70"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Git y GitHub</span><span>40%</span></div><div class="barra"><i data-nivel="60"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Bases de datos</span><span>65%</span></div><div class="barra"><i data-nivel="65"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Excel (intermedio)</span><span>60%</span></div><div class="barra"><i data-nivel="70"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Mantenimiento de computadoras</span><span>55%</span></div><div class="barra"><i data-nivel="75"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Redes</span><span>55%</span></div><div class="barra"><i data-nivel="60"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Fibra óptica (básico)</span><span>40%</span></div><div class="barra"><i data-nivel="40"></i></div></div>
+      <div class="habilidad"><div class="fila"><span>Instalación eléctrica (básico)</span><span>45%</span></div><div class="barra"><i data-nivel="45"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROYECTOS ===== -->
+<section id="proyectos" class="oculto">
+  <div class="contenedor">
+    <h2>Proyectos</h2>
+    <!-- CAMBIAR: nombre, descripción, tecnologías y enlaces de cada proyecto -->
+    <div class="rejilla g3">
+      <article class="tarjeta">
+        <h3>Tienda de accesorios (tema LSX)</h3>
+        <p>Tienda virtual de accesorios para celulares con catálogo y carrito, desarrollada como práctica del instituto.</p>
+        <div class="etiquetas"><span>WordPress</span><span>WooCommerce</span><span>CSS</span></div>
+        <div class="acciones"><a class="btn btn-primario btn-sm" href="https://lsx.accevix.com/">Ver proyecto</a><a class="btn btn-borde btn-sm" href="#">Ver código</a></div>
+      </article>
+      <article class="tarjeta">
+        <h3>Sistema de biblioteca</h3>
+        <p>Gestión de libros, usuarios y préstamos con panel de administración (proyecto de Aplicaciones Web).</p>
+        <div class="etiquetas"><span>Python</span><span>Django</span><span>MySQL</span><span>Bootstrap</span></div>
+        <div class="acciones"><a class="btn btn-primario btn-sm" href="#">Ver proyecto</a><a class="btn btn-borde btn-sm" href="#">Ver código</a></div>
+      </article>
+      <article class="tarjeta">
+        <h3>Sistema de matrículas</h3>
+        <p>Sistema web de matrículas para un instituto tecnológico, desarrollado por fases.</p>
+        <div class="etiquetas"><span>Python</span><span>Flask</span><span>HTML</span></div>
+        <div class="acciones"><a class="btn btn-primario btn-sm" href="#">Ver proyecto</a><a class="btn btn-borde btn-sm" href="#">Ver código</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCIA ===== -->
+<section id="experiencia" class="alt oculto">
+  <div class="contenedor">
+    <h2>Experiencia</h2>
+    <!-- CAMBIAR: reemplaza los nombres de módulo por los de tu plan de estudios -->
+    <div class="rejilla g3">
+      <div class="tarjeta"><span class="meta">Año 1 · 2024</span><h3>Prácticas – Módulo I</h3><p>Realizado en el IESTP Santa Lucía.</p></div>
+      <div class="tarjeta"><span class="meta">Año 2 · 2025</span><h3>Prácticas – Módulo II</h3><p>Realizado en el IESTP Santa Lucía.</p></div>
+      <div class="tarjeta"><span class="meta">Año 3 · 2026</span><h3>Prácticas – Módulo III</h3><p>Realizado en el IESTP Santa Lucía.</p></div>
+    </div>
+    <p style="margin-top:18px;color:var(--gris)">Además, desarrollo experiencia mediante proyectos académicos y personales.</p>
+  </div>
+</section>
+
+<!-- ===== CERTIFICADOS / CURSOS ===== -->
+<section id="cursos" class="oculto">
+  <div class="contenedor">
+    <h2>Cursos y certificados</h2>
+    <!-- CAMBIAR: nombre del curso, entidad y año -->
+    <div class="rejilla g3">
+      <div class="tarjeta"><span class="meta">Certificado</span><h3>Fibra óptica (nivel básico)</h3><p>Entidad y año (reemplaza)</p></div>
+      <div class="tarjeta"><span class="meta">Certificado</span><h3>Excel intermedio</h3><p>Entidad y año (reemplaza)</p></div>
+      <div class="tarjeta"><span class="meta">Certificado</span><h3>Instalación eléctrica (básico)</h3><p>Entidad y año (reemplaza)</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="alt oculto">
+  <div class="contenedor">
+    <h2>Contacto</h2>
+    <div class="contacto">
+      <div>
+        <p>Escríbeme para proyectos, prácticas o cualquier consulta.</p>
+        <!-- CAMBIAR: reemplaza "tu-usuario" por tu usuario real de GitHub y LinkedIn -->
+        <ul class="datos">
+          <li><b>Correo</b><a href="mailto:luispaucarticona@gmail.com">luispaucorticona@gmail.com</a></li>
+          <li><b>WhatsApp</b><a href="https://wa.me/51938691378" target="_blank" rel="noopener">938691378 (WhatsApp)</a></li>
+          <li><b>Ciudad / país</b>Santa Lucía, Perú</li>
+          <li><b>GitHub</b><a href="https://github.com/luis-spec" target="_blank" rel="noopener">github.com/luis-spec</a></li>
+          <li><b>LinkedIn</b><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">linkedin.com/in/tu-usuario</a></li>
+        </ul>
+      </div>
+      <!-- Formulario solo visual: no envía datos a ningún servidor -->
+      <form class="tarjeta" id="formContacto" novalidate>
+        <div class="campo"><label for="nombre">Nombre</label><input id="nombre" type="text" autocomplete="name"><span class="error"></span></div>
+        <div class="campo"><label for="correo">Correo</label><input id="correo" type="email" autocomplete="email"><span class="error"></span></div>
+        <div class="campo"><label for="asunto">Asunto</label><input id="asunto" type="text"><span class="error"></span></div>
+        <div class="campo"><label for="mensaje">Mensaje</label><textarea id="mensaje"></textarea><span class="error"></span></div>
+        <button class="btn btn-primario" type="submit">Enviar mensaje</button>
+        <p class="estado" id="estadoForm" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== PIE DE PÁGINA ===== -->
+<footer>
+  <div class="contenedor fila">
+    <!-- CAMBIAR: nombre y año -->
+    <span>© <span id="anio">2025</span> <b>Jose Luis Paucar Ticona</b>. Todos los derechos reservados.</span>
+    <span>
+      <a href="https://github.com/luis-spec" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:luispaucarticona@gmail.com">Correo</a>
+    </span>
+  </div>
+</footer>
+
+<button id="arriba" aria-label="Volver arriba">↑</button>
+
+<script>
+/* ===== Menú responsive ===== */
+const menu = document.getElementById('menu');
+const btnMenu = document.getElementById('btnMenu');
+btnMenu.addEventListener('click', () => {
+  const abierto = menu.classList.toggle('abierto');
+  btnMenu.setAttribute('aria-expanded', abierto);
+});
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menu.classList.remove('abierto');
+  btnMenu.setAttribute('aria-expanded', false);
+}));
+
+/* ===== Año automático en el pie ===== */
+document.getElementById('anio').textContent = new Date().getFullYear();
+
+/* ===== Aparición de secciones y animación de barras ===== */
+const observador = new IntersectionObserver(entradas => {
+  entradas.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('ver');
+    e.target.querySelectorAll('.barra i').forEach(b => b.style.width = b.dataset.nivel + '%');
+    observador.unobserve(e.target);
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.oculto').forEach(s => observador.observe(s));
+
+/* ===== Enlace activo del menú según la sección visible ===== */
+const enlaces = [...menu.querySelectorAll('a')];
+const secciones = enlaces.map(a => document.querySelector(a.getAttribute('href')));
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 120;
+  let actual = 0;
+  secciones.forEach((s, i) => { if (s.offsetTop <= y) actual = i; });
+  enlaces.forEach((a, i) => a.classList.toggle('activo', i === actual));
+  document.getElementById('arriba').classList.toggle('visible', window.scrollY > 500);
+}, { passive: true });
+
+/* ===== Botón volver arriba ===== */
+document.getElementById('arriba').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ===== Validación básica del formulario (solo visual, sin backend) ===== */
+const form = document.getElementById('formContacto');
+form.addEventListener('submit', ev => {
+  ev.preventDefault();
+  let valido = true;
+  const reglas = {
+    nombre:  v => v.trim().length >= 3 || 'Escribe tu nombre (mínimo 3 letras).',
+    correo:  v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Escribe un correo válido, por ejemplo nombre@correo.com.',
+    asunto:  v => v.trim().length >= 3 || 'Escribe el asunto del mensaje.',
+    mensaje: v => v.trim().length >= 10 || 'El mensaje debe tener al menos 10 caracteres.'
+  };
+  Object.keys(reglas).forEach(id => {
+    const campo = document.getElementById(id);
+    const res = reglas[id](campo.value);
+    campo.nextElementSibling.textContent = res === true ? '' : res;
+    if (res !== true) valido = false;
+  });
+  const estado = document.getElementById('estadoForm');
+  if (valido) {
+    estado.textContent = 'Mensaje listo. Este formulario es de ejemplo y aún no envía datos.';
+    form.reset();
+  } else {
+    estado.textContent = '';
+  }
+});
+</script>
+</body>
+</html>
